@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2013, 2017-2018 The Linux Foundation. All rights reserved.
+ * Copyright (C) 2019 XiaoMi, Inc.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -130,7 +131,6 @@ static int clk_branch_toggle(struct clk_hw *hw, bool en,
 	 * for CLK_OFF status to get updated.
 	 */
 	mb();
-
 	return clk_branch_wait(br, en, check_halt);
 }
 
@@ -145,7 +145,6 @@ static int clk_cbcr_set_flags(struct regmap *regmap, unsigned int reg,
 	u32 cbcr_val = 0;
 	u32 cbcr_mask;
 	int ret;
-
 	switch (flags) {
 	case CLKFLAG_PERIPH_OFF_SET:
 		cbcr_val = cbcr_mask = BIT(12);
